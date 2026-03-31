@@ -1,26 +1,358 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #002147;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: "Inter", sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+/* Universal responsive container */
+* {
+  box-sizing: border-box;
+}
+
+/* Responsive images and media */
+img, video, iframe, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Responsive text */
+h1, h2, h3, h4, h5, h6 {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+p, span, div, a, button {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Prevent table overflow */
+table {
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+}
+
+th, td {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  padding: 8px;
+}
+
+/* Responsive containers */
+.container, .wrapper, .content {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 16px;
+  margin: 0 auto;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 480px) {
+  html, body {
+    font-size: 14px;
+  }
+  
+  .container, .wrapper, .content {
+    padding: 0 12px;
+  }
+  
+  h1 { font-size: 1.5rem; }
+  h2 { font-size: 1.3rem; }
+  h3 { font-size: 1.1rem; }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  html, body {
+    font-size: 15px;
+  }
+  
+  .container, .wrapper, .content {
+    padding: 0 20px;
+  }
+  
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.5rem; }
+  h3 { font-size: 1.3rem; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  html, body {
+    font-size: 16px;
+  }
+  
+  .container, .wrapper, .content {
+    padding: 0 24px;
+    max-width: 100%;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.8rem; }
+  h3 { font-size: 1.5rem; }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  html, body {
+    font-size: 16px;
+  }
+  
+  .container, .wrapper, .content {
+    padding: 0 32px;
+    max-width: 1200px;
+  }
+  
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.8rem; }
+}
+
+@media (min-width: 1441px) {
+  html, body {
+    font-size: 16px;
+  }
+  
+  .container, .wrapper, .content {
+    padding: 0 40px;
+    max-width: 1400px;
+  }
+  
+  h1 { font-size: 3rem; }
+  h2 { font-size: 2.5rem; }
+  h3 { font-size: 2rem; }
+}
+
+/* Responsive grid systems */
+.grid-responsive {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .grid-responsive {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .grid-responsive {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Custom scrollbar for better UX */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Ensure responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better focus states for accessibility */
+button:focus,
+a:focus {
+  outline: 2px solid #B8976A;
+  outline-offset: 2px;
+}
+
+/* Remove focus for mouse users */
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+  
+  /* Prevent horizontal scroll on mobile */
+  * {
+    max-width: 100%;
+  }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+  button,
+  a,
+  .fg-disc,
+  .fg-svc,
+  .fg-story-item,
+  .fg-why {
+    touch-action: manipulation;
+  }
+}
+
+/* Navigation and Footer Global Styles */
+.fg-ddp { 
+  position: relative; 
+}
+
+.fg-dd {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 8px 0;
+  min-width: 180px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.fg-ddp:hover .fg-dd {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fg-dd a {
+  display: block;
+  padding: 10px 16px;
+  color: #2C3E50;
+  text-decoration: none;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+.fg-dd a:hover {
+  background-color: rgba(231, 76, 60, 0.08);
+  color: #E74C3C;
+}
+
+.fg-lang-dd {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 8px 0;
+  min-width: 120px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.fg-lang-dd[style*="block"],
+.fg-lang-dd:not([style*="display: none"]) {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.fg-lang-dd[style*="display: block"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  display: block !important;
+}
+
+.fg-lang-item {
+  display: block;
+  padding: 10px 16px;
+  color: #2C3E50;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+  font-weight: 500;
+}
+
+.fg-lang-item:hover {
+  background-color: rgba(231, 76, 60, 0.08);
+  color: #E74C3C;
+}
+
+.fg-lang-item.active {
+  background-color: rgba(231, 76, 60, 0.12);
+  color: #E74C3C;
+}
+
+.fg-flink {
+  display: block;
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  font-size: 13px;
+  margin-bottom: 8px;
+  transition: color 0.25s ease;
+}
+
+.fg-flink:hover {
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .fg-nav-links { 
+    display: none !important; 
+  }
+  
+  .fg-hamburger { 
+    display: flex !important; 
+  }
+  
+  footer {
+    padding: 50px 5% 0 !important;
+  }
+  
+  footer > div:first-child {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    text-align: center !important;
+  }
 }

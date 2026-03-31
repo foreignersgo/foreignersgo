@@ -1,0 +1,76 @@
+/* STICKY CONTACT WIDGET - Global styles for all pages */
+.fg-sticky-widget {
+  animation: none !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  bottom: max(22px, env(safe-area-inset-bottom, 0px));
+  flex-direction: column !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+.fg-sticky-orbits { 
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+}
+
+.fg-sticky-orbit {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  transition: all .3s !important;
+  border: 2px solid rgba(255,255,255,0.3) !important;
+  position: relative !important;
+}
+
+.fg-sticky-orbit:hover {
+  transform: translateY(-3px) scale(1.05) !important;
+  border-color: rgba(255,255,255,0.6) !important;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important;
+}
+
+.fg-sticky-orbit:active {
+  transform: translateY(-1px) scale(0.98) !important;
+}
+
+/* Mobile responsive */
+@media (max-width:900px) {
+  .fg-sticky-widget {
+    position: fixed !important;
+    left: auto !important;
+    right: max(14px, env(safe-area-inset-right, 0px)) !important;
+    top: 70% !important;
+    bottom: auto !important;
+    transform: translateY(-50%) !important;
+    margin: 0 !important;
+    padding: 14px 16px !important;
+    gap: 12px !important;
+  }
+  .fg-sticky-orbits { 
+    gap: 12px !important;
+  }
+  .fg-sticky-orbit {
+    width: 52px !important;
+    height: 52px !important;
+    font-size: 11px !important;
+    border-radius: 50% !important;
+  }
+  .fg-sticky-orbit:hover {
+    transform: translateY(-4px) scale(1.08) !important;
+  }
+}
