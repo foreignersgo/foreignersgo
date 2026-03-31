@@ -666,7 +666,7 @@ export default function AboutPage() {
       </section>
 
       <Footer lang={lang} />
-      <StickyContact onContact={handleContact} />
+      <StickyContact contact={handleContact} />
     </div>
 
     {/* WeChat Modal */}
