@@ -620,7 +620,7 @@ export default function AboutPage() {
                 📧
               </div>
               <h4 style={{ fontSize:'16px', fontWeight:600, marginBottom:'8px' }}>{t('email')}</h4>
-              <p style={{ fontSize:'14px', opacity:0.8 }}>info@foreignersgo.com</p>
+              <p style={{ fontSize:'14px', opacity:0.8 }}>service@foreignersgo.com</p>
             </div>
             <div>
               <div style={{ 
