@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import "./globals.css";
 
 // SEO Keywords for China, Canton Fair, Guangzhou services
@@ -101,6 +102,7 @@ export default function RootLayout({
     <html lang="en">
       <body className="font-sans antialiased">
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
