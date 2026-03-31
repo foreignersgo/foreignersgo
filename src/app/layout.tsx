@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 
 // SEO Keywords for China, Canton Fair, Guangzhou services
@@ -74,8 +75,8 @@ export const metadata: Metadata = {
   },
   viewport: "width=device-width, initial-scale=1",
   verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
+    google: "DA7P6vz8AHsH2qXIjKoCWeyrSB6hmGpKT-c8TT1gxkg", // Your actual verification code
+    // yandex: 'your-yandex-verification-code', // Optional: Add if you have Yandex
   },
   alternates: {
     canonical: 'https://foreignersgo.com',
@@ -99,8 +100,31 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {/* Additional meta tags for better SEO */}
+        <meta name="geo.region" content="CN-GD" />
+        <meta name="geo.placename" content="Guangzhou" />
+        <meta name="geo.position" content="23.1291;113.2644" />
+        <meta name="ICBM" content="23.1291, 113.2644" />
+      </head>
       <body className="font-sans antialiased">
         {children}
+        
+        {/* Optional: Add Google Analytics when you have your GA4 ID */}
+        {/* 
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-XXXXXXXXXX');
+          `}
+        </Script>
+        */}
       </body>
     </html>
   );
