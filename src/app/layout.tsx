@@ -102,6 +102,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Additional meta tags for better SEO */}
+        <meta name="msvalidate.01" content="8EAB78BAF901F26EBA32AA7F55F86DE7" />
         <meta name="geo.region" content="CN-GD" />
         <meta name="geo.placename" content="Guangzhou" />
         <meta name="geo.position" content="23.1291;113.2644" />
